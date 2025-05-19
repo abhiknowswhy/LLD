@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>pattern</groupId>
+    <artifactId>design-patterns</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <modules>
+        <module>dp1_strategy_ducks</module>
+        <module>dp2_observer_weatherstation</module>
+        <module>dp3_decorator_coffeehouse</module>
+        <module>dp4_factory_pizzastore</module>
+        <module>dp5_abstractfactory_pizzachain</module>
+        <module>dp6_singleton_chocolateplant</module>
+        <module>dp7_command_remotecontrol</module>
+        <module>dp8_adapter_ducks</module>
+        <module>dp9_facade_hometheatre</module>
+    </modules>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+    </properties>
+
+</project>
