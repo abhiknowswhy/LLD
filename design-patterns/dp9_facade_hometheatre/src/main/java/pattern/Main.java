@@ -26,5 +26,13 @@ public class Main {
 		
 		homeTheater.watchMovie("Raiders of the Lost Ark");
 		homeTheater.endMovie();
+
+		// trigger some cd function - CD is not part of the facade
+		System.out.println("\nPlaying CD - outside of facade");
+		cd.on();
+		cd.play("CD");
+		cd.eject();
+		cd.stop();
+		cd.off();
 	}
 }
