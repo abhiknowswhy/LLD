@@ -13,11 +13,15 @@
         <module>dp2_observer_weatherstation</module>
         <module>dp3_decorator_coffeehouse</module>
         <module>dp4_factory_pizzastore</module>
-         <module>dp6_singleton_chocolateplant</module>
+        <module>dp5_abstractfactory_pizzachain</module>
+        <module>dp6_singleton_chocolateplant</module>
         <module>dp7_command_remotecontrol</module>
         <module>dp8_adapter_ducks</module>
         <module>dp9_facade_hometheatre</module>
         <module>dp10_template_barista</module>
+        <module>dp11_iterator_mergedcafe</module>
+        <module>dp12_composite_mergedcafe</module>
+        <module>dp13_state_gumballmachine</module>
     </modules>
 
     <properties>
