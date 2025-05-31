@@ -50,6 +50,7 @@ src/main/java/pattern/
 ## Running the Demo
 
 The `ChocolateBoilerDemo` class demonstrates all implementations and verifies their singleton behavior. Each boiler instance performs these operations:
+
 - Fill the boiler
 - Boil the contents
 - Attempt to fill again (shows warning)
