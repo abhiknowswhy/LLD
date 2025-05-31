@@ -4,7 +4,7 @@ This module demonstrates the implementation of the Singleton pattern through the
 
 ## Directory Structure
 
-```
+```text
 src/main/java/pattern/
 ├── boiler/
 │   ├── impl/
