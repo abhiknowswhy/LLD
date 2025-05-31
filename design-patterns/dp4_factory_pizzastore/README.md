@@ -3,13 +3,14 @@
 This project demonstrates the Factory Method Pattern through a Pizza Store example.
 
 ## Overview
+
 The Factory Method Pattern defines an interface for creating an object, but lets subclasses decide which class to instantiate. Factory Method lets a class defer instantiation to subclasses. The Factory Method Pattern gives us a way to encapsulate the instantiations of concrete types.
 
 ## Structure
 
 The project is organized into the following packages:
 
-```
+```text
 pattern/
 ├── pizza/              # Base pizza abstract class
 ├── store/              # Base store abstract class
