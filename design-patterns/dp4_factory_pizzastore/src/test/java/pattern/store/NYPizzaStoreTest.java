@@ -1,6 +1,5 @@
 package pattern.store;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Spy;
@@ -24,7 +23,7 @@ public class NYPizzaStoreTest {
         doReturn(spyPizza).when(nyPizzaStore).createPizza("cheese");
 
         // When
-        Pizza pizza = nyPizzaStore.orderPizza("cheese");
+        nyPizzaStore.orderPizza("cheese");
 
         // Then
         verify(spyPizza, times(1)).prepare();

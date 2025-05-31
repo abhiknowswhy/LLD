@@ -23,7 +23,7 @@ public class ChicagoPizzaStoreTest {
         doReturn(spyPizza).when(chicagoPizzaStore).createPizza("cheese");
 
         // When
-        Pizza pizza = chicagoPizzaStore.orderPizza("cheese");
+        chicagoPizzaStore.orderPizza("cheese");
 
         // Then
         verify(spyPizza, times(1)).prepare();
