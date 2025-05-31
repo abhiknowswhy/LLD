@@ -10,7 +10,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 </parent>
 
 <groupId>pattern</groupId>
-<artifactId>dp9_facade_hometheatre</artifactId>
+<artifactId>dp08_adapter_ducks</artifactId>
 <version>1.0-SNAPSHOT</version>
 
 <properties>

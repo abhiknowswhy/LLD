@@ -7,21 +7,29 @@
     <groupId>pattern</groupId>
     <artifactId>design-patterns</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>pom</packaging>
-    <modules>
-        <module>dp1_strategy_ducks</module>
-        <module>dp2_observer_weatherstation</module>
-        <module>dp3_decorator_coffeehouse</module>
-        <module>dp4_factory_pizzastore</module>
-        <module>dp5_abstractfactory_pizzachain</module>
-        <module>dp6_singleton_chocolateplant</module>
-        <module>dp7_command_remotecontrol</module>
-        <module>dp8_adapter_ducks</module>
-        <module>dp9_facade_hometheatre</module>
+    <packaging>pom</packaging>    <modules>
+        <module>dp01_strategy_ducks</module>
+        <module>dp02_observer_weatherstation</module>
+        <module>dp03_decorator_coffeehouse</module>
+        <module>dp04_factory_pizzastore</module>
+        <module>dp05_abstractfactory_pizzachain</module>
+        <module>dp06_singleton_chocolateplant</module>
+        <module>dp07_command_remotecontrol</module>
+        <module>dp08_adapter_ducks</module>
+        <module>dp09_facade_hometheatre</module>
         <module>dp10_template_barista</module>
         <module>dp11_iterator_mergedcafe</module>
         <module>dp12_composite_mergedcafe</module>
         <module>dp13_state_gumballmachine</module>
+        <module>dp14_bridge_tvremote</module>
+        <module>dp15_builder_house</module>
+        <module>dp16_chainofresponsibility___</module>
+        <module>dp17_flyweight_trees</module>
+        <module>dp18_interpreter__</module>
+        <module>dp19_mediator__</module>
+        <module>dp20_memento__</module>
+        <module>dp21_prototype_gamemonster</module>
+        <module>dp22_visitor__</module>
     </modules>
 
     <properties>

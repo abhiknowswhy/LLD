@@ -10,7 +10,7 @@
     </parent>
 
     <groupId>pattern</groupId>
-    <artifactId>dp3_decorator_coffeehouse</artifactId>
+    <artifactId>dp03_decorator_coffeehouse</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
