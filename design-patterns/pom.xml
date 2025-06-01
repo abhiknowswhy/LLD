@@ -30,6 +30,7 @@
         <module>dp20_memento_gamestate</module>
         <module>dp21_prototype_gamemonster</module>
         <module>dp22_visitor_mergedcafe</module>
+        <module>dp23_proxy_gumballmonitor</module>
     </modules>
 
     <properties>
