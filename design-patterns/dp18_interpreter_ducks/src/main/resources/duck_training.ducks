@@ -1,0 +1,40 @@
+// Duck Training Script
+// This script shows how to train ducks and modify their behaviors
+
+// Create training subjects
+CREATE DUCK Rookie MALLARD
+CREATE DUCK Veteran MALLARD
+CREATE DUCK Trainee RUBBER
+
+// Initial assessment
+CALL Rookie DISPLAY
+CALL Rookie FLY
+CALL Rookie QUACK
+
+// Training phase 1: Disable flying for safety
+SET Rookie FLY_BEHAVIOR FLY_NO_WAY
+SET Veteran FLY_BEHAVIOR FLY_NO_WAY
+
+// Test ground training
+CALL Rookie FLY
+CALL Veteran FLY
+
+// Training phase 2: Voice modulation training
+SET Rookie QUACK_BEHAVIOR SQUEAK
+SET Trainee QUACK_BEHAVIOR MUTE_QUACK
+
+// Test voice training
+CALL Rookie QUACK
+CALL Trainee QUACK
+
+// Graduation: Restore full capabilities
+SET Rookie FLY_BEHAVIOR FLY_WITH_WINGS
+SET Rookie QUACK_BEHAVIOR QUACK
+
+// Final graduation test
+CALL Rookie DISPLAY
+CALL Rookie FLY
+CALL Rookie QUACK
+CALL Rookie SWIM
+
+LIST DUCKS

@@ -1,0 +1,42 @@
+// Duck Farm Management Script
+// This script demonstrates creating and managing a small duck farm
+
+// Create the initial duck population
+CREATE DUCK Daisy MALLARD
+CREATE DUCK Dewey MALLARD
+CREATE DUCK Huey MALLARD
+CREATE DUCK Squeaky RUBBER
+CREATE DUCK Hunter DECOY
+
+// Show the current farm
+LIST DUCKS
+
+// Morning routine - all ducks display themselves
+CALL Daisy DISPLAY
+CALL Dewey DISPLAY
+CALL Huey DISPLAY
+CALL Squeaky DISPLAY
+CALL Hunter DISPLAY
+
+// Flying practice for real ducks
+CALL Daisy FLY
+CALL Dewey FLY
+CALL Huey FLY
+
+// Swimming time for everyone
+CALL Daisy SWIM
+CALL Dewey SWIM
+CALL Huey SWIM
+CALL Squeaky SWIM
+CALL Hunter SWIM
+
+// Modify some behaviors for variety
+SET Huey QUACK_BEHAVIOR SQUEAK
+SET Squeaky QUACK_BEHAVIOR QUACK
+
+// Communication session
+CALL Daisy QUACK
+CALL Dewey QUACK
+CALL Huey QUACK
+CALL Squeaky QUACK
+CALL Hunter QUACK
