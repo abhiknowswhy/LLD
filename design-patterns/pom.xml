@@ -23,13 +23,13 @@
         <module>dp13_state_gumballmachine</module>
         <module>dp14_bridge_tvremote</module>
         <module>dp15_builder_house</module>
-        <module>dp16_chainofresponsibility___</module>
+        <module>dp16_chainofresponsibility_email</module>
         <module>dp17_flyweight_trees</module>
-        <module>dp18_interpreter__</module>
+        <module>dp18_interpreter_ducks</module>
         <module>dp19_mediator__</module>
         <module>dp20_memento__</module>
         <module>dp21_prototype_gamemonster</module>
-        <module>dp22_visitor__</module>
+        <module>dp22_visitor_mergedcafe</module>
     </modules>
 
     <properties>
