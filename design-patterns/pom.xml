@@ -26,8 +26,8 @@
         <module>dp16_chainofresponsibility_email</module>
         <module>dp17_flyweight_trees</module>
         <module>dp18_interpreter_ducks</module>
-        <module>dp19_mediator__</module>
-        <module>dp20_memento__</module>
+        <module>dp19_mediator_homeautomation</module>
+        <module>dp20_memento_gamestate</module>
         <module>dp21_prototype_gamemonster</module>
         <module>dp22_visitor_mergedcafe</module>
     </modules>
