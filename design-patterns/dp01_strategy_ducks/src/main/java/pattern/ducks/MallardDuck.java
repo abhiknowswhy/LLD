@@ -10,8 +10,18 @@ public class MallardDuck extends Duck {
         quackBehavior = new Quack();
     }
 
+    public MallardDuck(String name) {
+        super(name);
+        flyBehavior = new FlyWithWings();
+        quackBehavior = new Quack();
+    }
+
     @Override
     public void display() {
-        System.out.println("I'm a real Mallard duck");
+        if (name != null) {
+            System.out.println(name + " is a real Mallard duck");
+        } else {
+            System.out.println("I'm a real Mallard duck");
+        }
     }
 }

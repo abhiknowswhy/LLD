@@ -6,8 +6,13 @@ import pattern.behaviors.QuackBehavior;
 public abstract class Duck {
     protected FlyBehavior flyBehavior;
     protected QuackBehavior quackBehavior;
+    protected String name;
 
     public Duck() {}
+
+    public Duck(String name) {
+        this.name = name;
+    }
 
     public abstract void display();
 
@@ -20,7 +25,11 @@ public abstract class Duck {
     }
 
     public void swim() {
-        System.out.println("All ducks float, even decoys!");
+        if (name != null) {
+            System.out.println(name + " is swimming. All ducks float, even decoys!");
+        } else {
+            System.out.println("All ducks float, even decoys!");
+        }
     }
 
     public void setFlyBehavior(FlyBehavior fb) {
@@ -29,5 +38,13 @@ public abstract class Duck {
 
     public void setQuackBehavior(QuackBehavior qb) {
         quackBehavior = qb;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
