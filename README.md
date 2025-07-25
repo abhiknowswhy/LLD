@@ -9,3 +9,4 @@ This is a project to demonstrate various design patterns through examples. These
 Reference:
 
 - [Head first design patterns repo](https://github.com/bethrobson/Head-First-design-patterns)
+- [LLD questions from ashishps1](https://github.com/ashishps1/awesome-low-level-design)
