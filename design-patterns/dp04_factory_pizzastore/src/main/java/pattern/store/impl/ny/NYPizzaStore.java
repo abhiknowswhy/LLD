@@ -4,7 +4,8 @@ import pattern.pizza.Pizza;
 import pattern.store.PizzaStore;
 import pattern.pizza.impl.ny.*;
 
-public class NYPizzaStore extends PizzaStore {    @Override
+public class NYPizzaStore extends PizzaStore {
+    @Override
     public Pizza createPizza(String item) {
         return switch (item) {
             case "cheese" -> new NYStyleCheesePizza();
