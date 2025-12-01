@@ -1,4 +1,23 @@
+# Design Patterns Implementation in Java
+
 This project contains implementations of various design patterns in Java.
+
+## Build Information
+
+**Build Tool:** Apache Maven 3.9.11  
+**Java Version:** Java 17+ (Tested with Java 21)
+
+### Building the Project
+
+```bash
+# Clean build all modules
+mvn clean install
+
+# Build with parallel test execution
+mvn clean install -T 1C
+```
+
+**Note:** Tests run in parallel with 4 threads per module by default for faster execution.
 
 ## Table of Contents
 
