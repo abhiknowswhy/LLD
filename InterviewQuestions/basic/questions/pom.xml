@@ -10,6 +10,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>deck-of-cards</module>
+        <module>tic-tac-toe</module>
     </modules>
 
     <properties>
