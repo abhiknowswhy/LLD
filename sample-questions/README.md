@@ -4,10 +4,9 @@ A good set of questions here:
 
 [ChatGPT - Popular LLD Interview Questions](https://chatgpt.com/share/683ad373-7860-8005-b531-321c0f3d6830)
 
-GitHub repo ref:
-[GitHub - HimanshuSingour/Practice-Problem-LLD: &#34;I have added all the LLD practice problems here, for myself and anyone else who wants to use them. You don’t need to do all of them—just as many as y…](https://github.com/HimanshuSingour/Practice-Problem-LLD)
-
----
+GitHub repo refs:
+* Only questions No solutions: [HimanshuSingour/Practice-Problem-LLD](https://github.com/HimanshuSingour/Practice-Problem-LLD)
+* [tssovi/grokking-the-object-oriented-design-interview](https://github.com/tssovi/grokking-the-object-oriented-design-interview/tree/master)
 
 ---
 
@@ -22,12 +21,16 @@ GitHub repo ref:
 * Design a circular array
 * Design a hash table
 * Design a vending machine
+* Design a dictionary app
+* Design a phone directory app
+* Design Google search auto-complete
 
 ## 🟡 Intermediate Level (Moderate Complexity & Business Logic)
 
 * Design a snake game
 * Design a library management system
-* Design a parking lot
+* Design a parking lot (bonus: multithreaded)
+* Design an Airline management system
 * Design a shopping cart
 * Design an online chat group
 * Design a Jukebox
@@ -39,12 +42,15 @@ GitHub repo ref:
 
 * Design LRU cache, general cache store design with suitable algorithm
 * Design an Elevator system
+* Design a Meeting room scheduler system
 * Design a chess game
 * Design Othello/go
 * Design Jigsaw
 * Design a call center
 * Design a chat server
 * Design a filesystem
+* Deisgn filesystem UNIX commands - like find, regex find, cd for navigation
+* Design a log storage system
 
 ## 🔴 Expert Level (Enterprise & Distributed Systems)
 
@@ -52,3 +58,13 @@ GitHub repo ref:
 * Design a food delivery system
 * Design a ride sharing system
 * Design a splitwise app
+* Design a shopping cart
+* Design a payment wallet
+* Design a multi-threaded inventory management system
+* Design a product rating dashboard
+* Design a Game Leaderboard
+* Design a text editor (like MS Word)
+  * add undo/redo operations
+  * cursor operations and basic editing
+* Design a spreadsheet like MS Excel
+  * Add formulas support
