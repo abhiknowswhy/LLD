@@ -1,6 +1,7 @@
 # Design Patterns Implementation in Java
 
 This project contains implementations of various design patterns in Java.
+For other references of design patterns - https://refactoring.guru/design-patterns/what-is-pattern
 
 ## Build Information
 
