@@ -2,9 +2,11 @@
 
 This project contains implementations of various design patterns in Java.
 
+![1769763060788](image/README/1769763060788.png)
+
 ## Build Information
 
-**Build Tool:** Apache Maven 3.9.11  
+**Build Tool:** Apache Maven 3.9.11
 **Java Version:** Java 17+ (Tested with Java 21)
 
 ### Building the Project
