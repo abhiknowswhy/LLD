@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+          <groupId>questions.lld</groupId>
+          <artifactId>questions</artifactId>
+          <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <groupId>questions.lld</groupId>
+    <artifactId>tough</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <modules>
+        <module>cache-lru</module>
+        <module>cache-general</module>
+        <module>elevator-system</module>
+        <module>meeting-room-scheduler-system</module>
+        <module>chess-game</module>
+        <module>game-othello</module>
+        <module>game-jigsaw</module>
+        <module>call-center</module>
+        <module>chat-server</module>
+        <module>filesystem</module>
+        <module>filesystem-unix-commands</module>
+        <module>log-storage-system</module>
+    </modules>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+    </properties>
+
+</project>

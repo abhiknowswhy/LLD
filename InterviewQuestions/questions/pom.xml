@@ -12,6 +12,8 @@
     <modules>
         <module>basic</module>
         <module>medium</module>
+        <module>tough</module>
+        <module>very-tough</module>
     </modules>
 
     <properties>

@@ -53,13 +53,12 @@ GitHub repo refs:
 * Deisgn filesystem UNIX commands - like find, regex find, cd for navigation
 * Design a log storage system
 
-## 🔴 Very tough - Expert Level (Enterprise & Distributed Systems)
+## 🔴 Very tough - Expert Level
 
 * Design a stock exchange
 * Design a food delivery system
 * Design a ride sharing system
 * Design a splitwise app
-* Design a shopping cart
 * Design a payment wallet
 * Design a multi-threaded inventory management system
 * Design a product rating dashboard

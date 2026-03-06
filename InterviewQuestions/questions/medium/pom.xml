@@ -15,6 +15,15 @@
     <packaging>pom</packaging>
     <modules>
         <module>snake-game</module>
+        <module>library-management-system</module>
+        <module>parking-lot</module>
+        <module>parking-lot-multithreaded</module>
+        <module>airline-management-system</module>
+        <module>shopping-cart</module>
+        <module>jukebox</module>
+        <module>online-book-reader</module>
+        <module>minesweeper</module>
+        <module>snake-and-ladder</module>
     </modules>
 
     <properties>

@@ -26,17 +26,39 @@ for adding/removing from both ends, random access, and rotation.
 
 ## Class Diagram
 
-```
-CircularArray<T> implements Iterable<T>
-├── T[] array
-├── int head, size, capacity
-├── addFirst(T) / addLast(T)
-├── removeFirst() / removeLast()
-├── peekFirst() / peekLast()
-├── get(int) / set(int, T)
-├── rotate(int shift)
-├── iterator() → CircularArrayIterator
-└── toString()
+```mermaid
+classDiagram
+    class CircularArray~T~ {
+        -T[] array
+        -int head
+        -int size
+        -int capacity
+        +addFirst(T item) void
+        +addLast(T item) void
+        +removeFirst() T
+        +removeLast() T
+        +peekFirst() T
+        +peekLast() T
+        +get(int index) T
+        +set(int index, T item) void
+        +rotate(int shift) void
+        +iterator() Iterator~T~
+        +toString() String
+    }
+
+    class Iterable~T~ {
+        <<interface>>
+        +iterator() Iterator~T~
+    }
+
+    class CircularArrayIterator~T~ {
+        -int current
+        +hasNext() boolean
+        +next() T
+    }
+
+    CircularArray~T~ ..|> Iterable~T~
+    CircularArray~T~ --> CircularArrayIterator~T~ : creates
 ```
 
 ## Design Benefits

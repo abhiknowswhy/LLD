@@ -35,9 +35,16 @@ public class CircularArray<T> implements Iterable<T> {
      * Rotate the array by shift positions.
      * Positive shift rotates right, negative rotates left.
      * O(1) — just moves the head pointer.
+     *
+     * Only works when the array is full. When partially filled, rotating
+     * the head pointer would map logical indices onto empty physical slots.
      */
     public void rotate(int shift) {
         if (size == 0) return;
+        if (size != capacity) {
+            throw new IllegalStateException(
+                    "Rotation only supported when array is full (size=" + size + ", capacity=" + capacity + ")");
+        }
         head = toPhysicalIndex(-shift); // rotating right means head moves left
     }
 
