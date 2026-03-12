@@ -19,24 +19,32 @@ contacts with prefix-based search (autocomplete) and reverse phone lookup.
 
 ## Class Diagram
 
-```
-Contact (implements Comparable)
-├── String name, phoneNumber, email
-├── compareTo() — alphabetical by name
-
-TrieNode
-├── Map<Character, TrieNode> children
-├── Contact contact (at leaf)
-
-PhoneDirectory
-├── TrieNode root             — Trie for name-based search
-├── Map<String, Contact> phoneIndex — reverse lookup by phone
-├── addContact(Contact)
-├── findContact(name) → Contact
-├── findByPhoneNumber(phone) → Contact
-├── deleteContact(name) → boolean
-├── searchByPrefix(prefix) → List<Contact>
-├── allContacts() → List<Contact>
+```mermaid
+classDiagram
+    class Contact {
+        -String name
+        -String phoneNumber
+        -String email
+        +compareTo() int
+    }
+    class TrieNode {
+        -Map~Character, TrieNode~ children
+        -Contact contact
+    }
+    class PhoneDirectory {
+        -TrieNode root
+        -Map~String, Contact~ phoneIndex
+        +addContact(Contact)
+        +findContact(name) Contact
+        +findByPhoneNumber(phone) Contact
+        +deleteContact(name) boolean
+        +searchByPrefix(prefix) List~Contact~
+        +allContacts() List~Contact~
+    }
+    Contact ..|> Comparable : implements
+    PhoneDirectory --> TrieNode : root
+    TrieNode --> Contact : contact
+    PhoneDirectory --> Contact : phoneIndex
 ```
 
 ## Design Benefits

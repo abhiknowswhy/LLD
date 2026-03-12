@@ -18,25 +18,31 @@ searched sentences as the user types, character by character.
 
 ## Class Diagram
 
-```
-Suggestion (implements Comparable)
-├── String sentence, int frequency
-├── compareTo() — frequency desc, then alphabetical
-
-TrieNode
-├── Map<Character, TrieNode> children
-├── boolean endOfSentence
-├── int frequency
-
-AutocompleteSystem
-├── TrieNode root
-├── int maxSuggestions
-├── StringBuilder currentInput
-├── loadHistory(sentences[], frequencies[])
-├── input(char) → List<Suggestion>   [interactive]
-├── search(prefix) → List<Suggestion> [one-shot]
-├── recordSearch(query)
-├── resetInput()
+```mermaid
+classDiagram
+    class Suggestion {
+        -String sentence
+        -int frequency
+        +compareTo() int
+    }
+    class TrieNode {
+        -Map~Character, TrieNode~ children
+        -boolean endOfSentence
+        -int frequency
+    }
+    class AutocompleteSystem {
+        -TrieNode root
+        -int maxSuggestions
+        -StringBuilder currentInput
+        +loadHistory(sentences, frequencies)
+        +input(char) List~Suggestion~
+        +search(prefix) List~Suggestion~
+        +recordSearch(query)
+        +resetInput()
+    }
+    Suggestion ..|> Comparable : implements
+    AutocompleteSystem --> TrieNode : root
+    AutocompleteSystem --> Suggestion : produces
 ```
 
 ## Design Benefits

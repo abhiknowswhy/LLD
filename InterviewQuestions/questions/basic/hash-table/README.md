@@ -17,21 +17,27 @@ with automatic resizing.
 
 ## Class Diagram
 
-```
-Entry<K, V>
-├── K key, V value
-├── Entry<K, V> next  (linked list for chaining)
-
-HashTable<K, V>
-├── Entry<K, V>[] buckets
-├── int size, float loadFactor
-├── put(K, V) → V
-├── get(K) → V
-├── remove(K) → V
-├── containsKey(K) → boolean
-├── keys() → List<K>
-├── values() → List<V>
-├── resize()  [private — doubles capacity & rehashes]
+```mermaid
+classDiagram
+    class Entry~K, V~ {
+        -K key
+        -V value
+        -Entry~K, V~ next
+    }
+    class HashTable~K, V~ {
+        -Entry~K, V~[] buckets
+        -int size
+        -float loadFactor
+        +put(K, V) V
+        +get(K) V
+        +remove(K) V
+        +containsKey(K) boolean
+        +keys() List~K~
+        +values() List~V~
+        -resize()
+    }
+    HashTable --> Entry : buckets
+    Entry --> Entry : next
 ```
 
 ## Design Benefits

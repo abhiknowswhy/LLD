@@ -18,34 +18,74 @@ dispensing, change return, and cancellation with proper state management.
 
 ## State Diagram
 
-```
-[Idle] --insertMoney()--> [HasMoney]
-[HasMoney] --insertMoney()--> [HasMoney]  (add more)
-[HasMoney] --selectProduct()--> [Dispensing] (if valid)
-[HasMoney] --cancel()--> [Idle]  (refund)
-[Dispensing] --dispense()--> [Idle]  (auto-transition)
+```mermaid
+stateDiagram-v2
+    [*] --> Idle
+    Idle --> HasMoney : insertMoney()
+    HasMoney --> HasMoney : insertMoney() [add more]
+    HasMoney --> Dispensing : selectProduct() [if valid]
+    HasMoney --> Idle : cancel() [refund]
+    Dispensing --> Idle : dispense() [auto-transition]
 ```
 
 ## Class Diagram
 
-```
-Product
-├── String name, double price
-
-Slot
-├── String code, Product product, int quantity
-├── stock(), addStock(), dispense()
-
-VendingState (interface)  ← State Pattern
-├── insertMoney(), selectProduct(), dispense(), cancel()
-├── IdleState, HasMoneyState, DispensingState
-
-VendingMachine (Context)
-├── Map<String, Slot> slots
-├── VendingState state
-├── double balance
-├── insertMoney(), selectProduct(), cancelTransaction()
-├── stockProduct(), addStock(), displayInventory()
+```mermaid
+classDiagram
+    class Product {
+        -String name
+        -double price
+    }
+    class Slot {
+        -String code
+        -Product product
+        -int quantity
+        +stock()
+        +addStock()
+        +dispense()
+    }
+    class VendingState {
+        <<interface>>
+        +insertMoney()
+        +selectProduct()
+        +dispense()
+        +cancel()
+    }
+    class IdleState {
+        +insertMoney()
+        +selectProduct()
+        +dispense()
+        +cancel()
+    }
+    class HasMoneyState {
+        +insertMoney()
+        +selectProduct()
+        +dispense()
+        +cancel()
+    }
+    class DispensingState {
+        +insertMoney()
+        +selectProduct()
+        +dispense()
+        +cancel()
+    }
+    class VendingMachine {
+        -Map~String, Slot~ slots
+        -VendingState state
+        -double balance
+        +insertMoney()
+        +selectProduct()
+        +cancelTransaction()
+        +stockProduct()
+        +addStock()
+        +displayInventory()
+    }
+    VendingState <|.. IdleState : implements
+    VendingState <|.. HasMoneyState : implements
+    VendingState <|.. DispensingState : implements
+    VendingMachine --> VendingState : state
+    VendingMachine --> Slot : slots
+    Slot --> Product : product
 ```
 
 ## Design Benefits

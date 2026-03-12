@@ -17,22 +17,25 @@ lookup, deletion, prefix search, and autocomplete using a Trie.
 
 ## Class Diagram
 
-```
-TrieNode
-├── Map<Character, TrieNode> children
-├── boolean endOfWord
-├── String meaning
-
-Dictionary
-├── TrieNode root
-├── int wordCount
-├── addWord(word, meaning)
-├── lookup(word) → String
-├── contains(word) → boolean
-├── delete(word) → boolean
-├── startsWith(prefix) → boolean
-├── wordsWithPrefix(prefix) → List<String>
-├── allWords() → List<String>
+```mermaid
+classDiagram
+    class TrieNode {
+        -Map~Character, TrieNode~ children
+        -boolean endOfWord
+        -String meaning
+    }
+    class Dictionary {
+        -TrieNode root
+        -int wordCount
+        +addWord(word, meaning)
+        +lookup(word) String
+        +contains(word) boolean
+        +delete(word) boolean
+        +startsWith(prefix) boolean
+        +wordsWithPrefix(prefix) List~String~
+        +allWords() List~String~
+    }
+    Dictionary --> TrieNode : root
 ```
 
 ## Design Benefits

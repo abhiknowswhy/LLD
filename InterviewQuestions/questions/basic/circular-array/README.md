@@ -63,8 +63,14 @@ classDiagram
 
 ## Design Benefits
 
-✅ O(1) rotation via head pointer manipulation  
-✅ Generic — works with any type  
-✅ Iterable — supports enhanced for-loops  
-✅ Clean separation of logical vs physical indexing  
+✅ O(1) rotation via head pointer manipulation
+✅ Generic — works with any type
+✅ Iterable — supports enhanced for-loops
+✅ Clean separation of logical vs physical indexing
 ✅ Defensive — bounds checking, capacity overflow detection
+
+
+## Potential discussion points
+
+- Why not use a dynamic array instead of fixed sized array? (like a Vector/ ArrayList with push back)
+  Push back and pop back operations in arrays have an adverse effect - their insert and deletes are asymptotically O(1) but sometimes, if the allocated size of the array is less than the required size - the program needs to reallocate memory which is an O(n) operation. In contrast, a circular array with a fixed size does not require reallocation and can guarantee O(1) time complexity for insertions and deletions at both ends, as well as for random access and rotation. This makes it more efficient for scenarios where the maximum size is known in advance and memory management is a concern.
