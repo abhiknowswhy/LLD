@@ -2,154 +2,129 @@ package questions.lld;
 
 import questions.lld.CircularArray.CircularArray;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.BeforeEach;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.NoSuchElementException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Tests for {@link CircularArray} — the pure, always-full circular array.
+ */
 public class CircularArrayTest {
 
-    private CircularArray<Integer> ring;
+    // ── construction ────────────────────────────────────────────────────
 
-    @BeforeEach
-    void setUp() {
-        ring = new CircularArray<>(5);
+    @Test
+    void varargConstructorStoresElements() {
+        CircularArray<Integer> arr = new CircularArray<>(10, 20, 30);
+        assertEquals(3, arr.size());
+        assertEquals(10, arr.get(0));
+        assertEquals(20, arr.get(1));
+        assertEquals(30, arr.get(2));
     }
 
     @Test
-    void testAddLastAndGet() {
-        ring.addLast(10);
-        ring.addLast(20);
-        ring.addLast(30);
-        assertEquals(10, ring.get(0));
-        assertEquals(20, ring.get(1));
-        assertEquals(30, ring.get(2));
-        assertEquals(3, ring.size());
+    void sizeConstructorCreatesNullFilledArray() {
+        CircularArray<String> arr = new CircularArray<>(4);
+        assertEquals(4, arr.size());
+        assertNull(arr.get(0));
+        assertNull(arr.get(3));
     }
 
     @Test
-    void testAddFirstAndGet() {
-        ring.addLast(10);
-        ring.addLast(20);
-        ring.addFirst(5);
-        assertEquals(5, ring.get(0));
-        assertEquals(10, ring.get(1));
-        assertEquals(20, ring.get(2));
+    void constructorRejectsEmptyAndInvalid() {
+        assertThrows(IllegalArgumentException.class, () -> new CircularArray<>(0));
+        assertThrows(IllegalArgumentException.class, () -> new CircularArray<>(-1));
+        assertThrows(IllegalArgumentException.class, () -> new CircularArray<>(new Integer[0]));
+    }
+
+    // ── get / set ───────────────────────────────────────────────────────
+
+    @Test
+    void getAndSetByLogicalIndex() {
+        CircularArray<Integer> arr = new CircularArray<>(1, 2, 3);
+        arr.set(1, 99);
+        assertEquals(99, arr.get(1));
     }
 
     @Test
-    void testRemoveFirst() {
-        ring.addLast(10);
-        ring.addLast(20);
-        ring.addLast(30);
-        assertEquals(10, ring.removeFirst());
-        assertEquals(20, ring.get(0));
-        assertEquals(2, ring.size());
+    void outOfBoundsThrows() {
+        CircularArray<Integer> arr = new CircularArray<>(1, 2, 3);
+        assertThrows(IndexOutOfBoundsException.class, () -> arr.get(3));
+        assertThrows(IndexOutOfBoundsException.class, () -> arr.get(-1));
+    }
+
+    // ── rotation ────────────────────────────────────────────────────────
+
+    @Test
+    void rotateRightShiftsView() {
+        CircularArray<Integer> arr = new CircularArray<>(1, 2, 3, 4, 5);
+        arr.rotate(2);
+        // [4, 5, 1, 2, 3]
+        assertEquals(4, arr.get(0));
+        assertEquals(5, arr.get(1));
+        assertEquals(1, arr.get(2));
+        assertEquals(2, arr.get(3));
+        assertEquals(3, arr.get(4));
     }
 
     @Test
-    void testRemoveLast() {
-        ring.addLast(10);
-        ring.addLast(20);
-        ring.addLast(30);
-        assertEquals(30, ring.removeLast());
-        assertEquals(2, ring.size());
+    void rotateLeftShiftsView() {
+        CircularArray<Integer> arr = new CircularArray<>(1, 2, 3, 4, 5);
+        arr.rotate(-1);
+        // [2, 3, 4, 5, 1]
+        assertEquals(2, arr.get(0));
+        assertEquals(1, arr.get(4));
     }
 
     @Test
-    void testRotateRight() {
-        ring.addLast(1);
-        ring.addLast(2);
-        ring.addLast(3);
-        ring.addLast(4);
-        ring.addLast(5);
-
-        ring.rotate(2);
-        // After rotate right by 2: [4, 5, 1, 2, 3]
-        assertEquals(4, ring.get(0));
-        assertEquals(5, ring.get(1));
-        assertEquals(1, ring.get(2));
+    void rotateByZeroIsNoOp() {
+        CircularArray<Integer> arr = new CircularArray<>(1, 2, 3);
+        arr.rotate(0);
+        assertEquals("[1, 2, 3]", arr.toString());
     }
 
     @Test
-    void testRotateLeft() {
-        ring.addLast(1);
-        ring.addLast(2);
-        ring.addLast(3);
-        ring.addLast(4);
-        ring.addLast(5);
-
-        ring.rotate(-1);
-        // After rotate left by 1: [2, 3, 4, 5, 1]
-        assertEquals(2, ring.get(0));
-        assertEquals(1, ring.get(4));
+    void rotateByFullCycleIsNoOp() {
+        CircularArray<Integer> arr = new CircularArray<>(1, 2, 3, 4, 5);
+        arr.rotate(5);
+        assertEquals("[1, 2, 3, 4, 5]", arr.toString());
     }
 
     @Test
-    void testIterator() {
-        ring.addLast(10);
-        ring.addLast(20);
-        ring.addLast(30);
+    void rotateAndSetMutatesCorrectSlot() {
+        CircularArray<Integer> arr = new CircularArray<>(1, 2, 3, 4, 5);
+        arr.rotate(2);          // [4, 5, 1, 2, 3]
+        arr.set(0, 99);         // logical 0 now points to physical slot for '4'
+        assertEquals(99, arr.get(0));
+        assertEquals(5, arr.get(1));
+    }
 
-        List<Integer> result = new ArrayList<>();
-        for (int val : ring) {
-            result.add(val);
-        }
-        assertEquals(List.of(10, 20, 30), result);
+    // ── iterator ────────────────────────────────────────────────────────
+
+    @Test
+    void iteratorWalksLogicalOrder() {
+        CircularArray<Integer> arr = new CircularArray<>(10, 20, 30);
+        List<Integer> collected = new ArrayList<>();
+        for (int v : arr) collected.add(v);
+        assertEquals(List.of(10, 20, 30), collected);
     }
 
     @Test
-    void testFullCapacity() {
-        for (int i = 0; i < 5; i++) {
-            ring.addLast(i);
-        }
-        assertTrue(ring.isFull());
-        assertThrows(IllegalStateException.class, () -> ring.addLast(99));
+    void iteratorRespectsRotation() {
+        CircularArray<Integer> arr = new CircularArray<>(1, 2, 3, 4, 5);
+        arr.rotate(2);
+        List<Integer> collected = new ArrayList<>();
+        for (int v : arr) collected.add(v);
+        assertEquals(List.of(4, 5, 1, 2, 3), collected);
     }
 
-    @Test
-    void testEmptyRemoveThrows() {
-        assertThrows(NoSuchElementException.class, () -> ring.removeFirst());
-        assertThrows(NoSuchElementException.class, () -> ring.removeLast());
-    }
+    // ── toString ────────────────────────────────────────────────────────
 
     @Test
-    void testIndexOutOfBounds() {
-        ring.addLast(1);
-        assertThrows(IndexOutOfBoundsException.class, () -> ring.get(5));
-        assertThrows(IndexOutOfBoundsException.class, () -> ring.get(-1));
-    }
-
-    @Test
-    void testPeek() {
-        ring.addLast(10);
-        ring.addLast(20);
-        ring.addLast(30);
-        assertEquals(10, ring.peekFirst());
-        assertEquals(30, ring.peekLast());
-        assertEquals(3, ring.size()); // peek doesn't remove
-    }
-
-    @Test
-    void testSet() {
-        ring.addLast(10);
-        ring.addLast(20);
-        ring.set(1, 99);
-        assertEquals(99, ring.get(1));
-    }
-
-    @Test
-    void testWrapAroundAfterRemoveAndAdd() {
-        // Fill, remove from front, add to back — forces wrap-around
-        for (int i = 0; i < 5; i++) ring.addLast(i);
-        ring.removeFirst(); // removes 0
-        ring.removeFirst(); // removes 1
-        ring.addLast(5);
-        ring.addLast(6);
-        assertEquals(2, ring.get(0));
-        assertEquals(6, ring.get(4));
+    void toStringShowsLogicalOrder() {
+        CircularArray<String> arr = new CircularArray<>("a", "b", "c");
+        assertEquals("[a, b, c]", arr.toString());
     }
 }
