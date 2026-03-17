@@ -13,7 +13,7 @@
     <artifactId>basic</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>deck-of-cards</module>
+        <module>shoe-of-cards</module>
         <module>tic-tac-toe</module>
         <module>simple-board-games</module>
         <module>circular-array</module>

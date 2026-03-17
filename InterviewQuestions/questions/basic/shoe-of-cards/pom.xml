@@ -10,7 +10,7 @@
     </parent>
 
     <groupId>questions.lld</groupId>
-    <artifactId>deck-of-cards</artifactId>
+    <artifactId>shoe-of-cards</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>

@@ -1,7 +1,7 @@
-package questions.lld.Deck.Card;
+package questions.lld.Shoe.Card;
 
-import questions.lld.Deck.Card.Enums.Rank;
-import questions.lld.Deck.Card.Enums.Suit;
+import questions.lld.Shoe.Card.Enums.Rank;
+import questions.lld.Shoe.Card.Enums.Suit;
 
 public class Joker implements ICard {
     

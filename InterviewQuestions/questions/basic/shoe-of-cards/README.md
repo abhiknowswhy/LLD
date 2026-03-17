@@ -1,10 +1,10 @@
-# Deck of Cards
+# Shoe of Cards
 
-Design a Deck of cards
+Design a Shoe of cards
 
 ## Clarification of Problem Statement
 
-Design a reusable, extensible, and maintainable deck of cards system that works across different card games (Poker, Rummy, Bridge, Blackjack, etc.).
+Design a reusable, extensible, and maintainable shoe of cards system that works across different card games (Poker, Rummy, Bridge, Blackjack, etc.).
 
 ### Requirements
 
@@ -12,11 +12,11 @@ Design a reusable, extensible, and maintainable deck of cards system that works 
 - Mix multiple decks together (for games requiring shoe configurations)
 - Shuffle, deal, and burn cards
 - Easy to extend with new card types without modifying existing code
-- Each game can define its own rules while sharing the core deck functionality
+- Each game can define its own rules while sharing the core shoe functionality
 
 ### Constraints
 
-- Deck composition should be immutable after creation (prevent bugs during gameplay)
+- Shoe composition should be immutable after creation (prevent bugs during gameplay)
 - Jokers shouldn't have rank/suit properties
 - System should work for any card game without modification
 
@@ -37,7 +37,7 @@ classDiagram
         +getSuit(): Suit
     }
 
-    class Deck {
+    class Shoe {
         -cards: List~ICard~
         -numDecks: int
         -numJokersPerDeck: int
@@ -46,12 +46,12 @@ classDiagram
         +remainingCards(): int
     }
 
-    class DeckBuilder {
+    class ShoeBuilder {
         -numDecks: int
         -numJokersPerDeck: int
-        +withDecks(numDecks: int): DeckBuilder
-        +withJokers(numJokersPerDeck: int): DeckBuilder
-        +build(): Deck
+        +withDecks(numDecks: int): ShoeBuilder
+        +withJokers(numJokersPerDeck: int): ShoeBuilder
+        +build(): Shoe
     }
 
     class Enums {
@@ -62,15 +62,15 @@ classDiagram
 
     Enums <|.. ICard
     ICard <|.. Card
-    Deck o-- ICard
-    DeckBuilder --> Deck
-    ICard <|.. JokerCard
+    Shoe o-- ICard
+    ShoeBuilder --> Shoe
+    ICard <|.. Joker
 ```
 
 ### Design Benefits
 
-✅ **Extensible**: New card types via ICard interface without modifying Deck
-✅ **Reusable**: Same Deck works for Poker, Rummy, Bridge, Blackjack, etc.
+✅ **Extensible**: New card types via ICard interface without modifying Shoe
+✅ **Reusable**: Same Shoe works for Poker, Rummy, Bridge, Blackjack, etc.
 ✅ **Type-Safe**: Enums prevent invalid ranks/suits
 ✅ **Immutable**: Configuration locked after creation, prevents bugs
 ✅ **Builder Pattern**: Games configure decks fluently without code changes

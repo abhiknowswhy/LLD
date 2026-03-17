@@ -17,7 +17,7 @@ GitHub repo refs:
 
 ## 🟢 Basic - Beginner Level (Basic OOP & Simple Logic)
 
-* Design a deck of cards
+* Design a deck/shoe of cards
 * Design tic tac toe game
 * Design a circular array
 * Design a hash table

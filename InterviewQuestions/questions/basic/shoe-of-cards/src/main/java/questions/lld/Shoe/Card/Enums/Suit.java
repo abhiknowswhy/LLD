@@ -1,4 +1,4 @@
-package questions.lld.Deck.Card.Enums;
+package questions.lld.Shoe.Card.Enums;
 
 public enum Suit {
     CLUB("Clubs"),

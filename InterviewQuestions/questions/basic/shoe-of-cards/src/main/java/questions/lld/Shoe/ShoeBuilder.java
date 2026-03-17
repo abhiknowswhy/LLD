@@ -1,18 +1,18 @@
-package questions.lld.Deck;
+package questions.lld.Shoe;
 
 /**
- * Builder class for constructing Deck instances with fluent API
+ * Builder class for constructing Shoe instances with fluent API
  */
-public class DeckBuilder {
+public class ShoeBuilder {
     private int numDecks = 1;
     private int numJokers = 0;
 
     /**
      * Set the number of standard decks to include
      * @param numDecks number of decks (default: 1)
-     * @return this builder for chaining
+     * @return this shoe builder for chaining
      */
-    public DeckBuilder withDecks(int numDecks) {
+    public ShoeBuilder withDecks(int numDecks) {
         this.numDecks = numDecks;
         return this;
     }
@@ -20,18 +20,18 @@ public class DeckBuilder {
     /**
      * Set the number of jokers per deck
      * @param numJokersPerDeck number of jokers per deck (default: 0)
-     * @return this builder for chaining
+     * @return this shoe builder for chaining
      */
-    public DeckBuilder withJokers(int numJokersPerDeck) {
+    public ShoeBuilder withJokers(int numJokersPerDeck) {
         this.numJokers = numJokersPerDeck;
         return this;
     }
 
     /**
-     * Build and return the Deck instance
-     * @return configured Deck
+     * Build and return the Shoe instance
+     * @return configured Shoe
      */
-    public Deck build() {
-        return new Deck(numDecks, numJokers);
+    public Shoe build() {
+        return new Shoe(numDecks, numJokers);
     }
 }
