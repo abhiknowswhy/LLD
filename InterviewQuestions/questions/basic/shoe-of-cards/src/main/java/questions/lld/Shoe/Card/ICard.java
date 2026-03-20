@@ -7,4 +7,6 @@ public interface ICard {
     Rank getRank();
     
     Suit getSuit();
+
+    String toString();
 }
